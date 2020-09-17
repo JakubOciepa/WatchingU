@@ -1,0 +1,26 @@
+﻿@page "/stalker"
+
+<div @onpointermove="OnPointerMove" class="stalker-window">
+    <div class="stalker-data">
+        <div class="face">
+            <div class="eyes">
+                <div class="eye" style="transform:rotate(@(Rotate)deg)"></div>
+                <div class="eye" style="transform:rotate(@(Rotate)deg)"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public int X { get; set; }
+    public int Y { get; set; }
+    public int Rotate { get; set; }
+
+    public void OnPointerMove(PointerEventArgs e)
+    {
+        var radian = Math.Atan2(480 - e.ClientX, 400 - e.ClientY);
+        var rotation = (radian * (180 / Math.PI) * -1) - 270;
+        Rotate = Convert.ToInt32(rotation);
+    }
+}
