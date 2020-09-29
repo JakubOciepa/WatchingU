@@ -19,7 +19,7 @@
 
     public void OnPointerMove(PointerEventArgs e)
     {
-        var radian = Math.Atan2(480 - e.ClientX, 400 - e.ClientY);
+        var radian = Math.Atan2(700 - e.ClientX,280 - e.ClientY);
         var rotation = (radian * (180 / Math.PI) * -1) - 270;
         Rotate = Convert.ToInt32(rotation);
     }
